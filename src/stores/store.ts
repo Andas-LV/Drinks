@@ -1,20 +1,22 @@
-// stores/store.ts
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
-interface Drink {
-    idDrink: string;
-    strDrink: string;
-    // Add other properties as needed
-}
+export const useCocktailStore = defineStore({
+    id: 'cocktails',
 
-export const useCocktailStore = defineStore('cocktail', {
     state: () => ({
-        cocktails: [] as Drink[],
+        cocktail: [],
     }),
 
-    actions: {
-        setCocktails(cocktails: Drink[]) {
-            this.cocktails = cocktails;
-        },
+    getters: {
+        getCocktail: (state) => state.cocktail
     },
-});
+
+    actions: {
+        async fetchCocktails(cocktail:string) {
+            const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktail}`)
+            const data = await response.json()
+            this.cocktail = data.drinks[0].strCategory
+        }
+    }
+
+})
