@@ -4,6 +4,8 @@ import Margarita from '@/pages/Margarita.vue'
 import Mojito from '@/pages/Mojito.vue'
 import A1 from '@/pages/A1.vue'
 import Kir from '@/pages/Kir.vue'
+import Fail from "@/pages/Fail.vue";
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +29,10 @@ const router = createRouter({
     {
       path: '/kir',
       component: Kir
+    },
+    {
+      path: '/:catchAll(.*)',
+      component: Fail,
     },
   ]
 })

@@ -6,6 +6,3 @@
   <Header/>
 </template>
 
-<style scoped>
-
-</style>

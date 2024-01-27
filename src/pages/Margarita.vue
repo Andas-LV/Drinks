@@ -1,16 +1,13 @@
-<script setup lang="ts">
-import {useCocktailStore} from "@/stores/store";
-
-useCocktailStore().fetchCocktails('margarita')
-</script>
-
 <template>
-  <h1>margarita</h1>
-  <div >
-    <h2>{{ useCocktailStore().cocktail }}</h2>
+  <div>
+    <CocktailInfo :cocktail="useCocktailStore().cocktail[0]" />
   </div>
 </template>
 
-<style scoped>
+<script setup lang="ts">
+import { useCocktailStore } from "@/stores/store";
+import CocktailInfo from "../components/CocktailInfo.vue";
 
-</style>
+useCocktailStore().fetchCocktails('margarita');
+</script>
+

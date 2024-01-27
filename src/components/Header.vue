@@ -17,3 +17,24 @@
 <script setup lang="ts">
 import {RouterLink, RouterView} from "vue-router";
 </script>
+
+<style scoped lang="scss">
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 50px;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+  nav{
+    flex-direction: row;
+    margin-bottom: 30px;
+  }
+}
+</style>
